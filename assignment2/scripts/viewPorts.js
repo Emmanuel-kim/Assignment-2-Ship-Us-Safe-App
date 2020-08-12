@@ -5,11 +5,13 @@ getPortsApi();
 if (localStorage.getItem('ports') != undefined) {
     console.log("Show data from local storage")
     showPorts(getPorts());
+} else {
+    getPortsApi();
 }
-// else {
-//     console.log("Load from API")
-//     getPortsApi();
-// }
+
+//TODO
+// You should clearly display which ships / ports were user made and which ones
+// were sourced from the API.
 
 function getPortsApi() {
 
@@ -25,9 +27,10 @@ function getPortsApi() {
         if (http.status == 200 && http.readyState == 4) {
             let response = http.responseText;
             let data = JSON.parse(response).ports;
-            //save data to local storage
-            localStorage.setItem('ports', JSON.stringify(data))
-            showPorts(getPorts());
+            //save to local storage
+            localStorage.setItem('ports', JSON.stringify(data));
+
+            showPorts(data);
 
         } else {
             //show error
@@ -35,6 +38,7 @@ function getPortsApi() {
         }
     }
 }
+
 
 //display data on table
 function showPorts(data) {

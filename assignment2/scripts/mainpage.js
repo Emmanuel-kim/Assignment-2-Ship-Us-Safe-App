@@ -2,7 +2,7 @@
 
 if (localStorage.getItem('routes') != undefined) {
     console.log("Show data from local storage")
-    showRoutes(getRoutes());
+    showRoutes(getPorts());
 }
 
 //display data on table
@@ -19,15 +19,9 @@ function showRoutes(data) {
         row.insertCell(5).innerHTML = data[i].time;
         row.insertCell(6).innerHTML = data[i].cost;
         row.insertCell(7).innerHTML = data[i].startDate;
-        row.insertCell(8).innerHTML = ' <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"' +
-            'onclick = "setSelected(' + i + ')" id = "addRouteBtn" >  View Details </button >'
     }
 }
 
-function setSelected(i) {
-    localStorage.setItem('selectedRoute', i);
-    window.location.replace("../main/viewRoute.html");
-}
 
 //get ports from local storage
 function getRoutes() {

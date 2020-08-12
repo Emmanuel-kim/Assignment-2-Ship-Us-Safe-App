@@ -11,13 +11,13 @@ class Ship {
 }
 
 class Port {
-    constructor(name, country, type, size, latitude, longitude) {
+    constructor(name, country, type, size, lat, lng) {
         this.name = name;
         this.country = country;
         this.type = type;
         this.size = size;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.lat = lat;
+        this.lng = lng;
 
 
     }

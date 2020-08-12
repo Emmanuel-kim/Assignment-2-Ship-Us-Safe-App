@@ -10,6 +10,7 @@ function addPort() {
     if (portLocation == undefined) {
         //Return error to the page
         console.log("No location found");
+        alert("The location provided was not found and port was not created.");
         return;
     }
     p = new Port(document.getElementById('name').value,
@@ -31,7 +32,10 @@ function addPort() {
     //add the new port.
     data.push(p);
     //update local storage
-    localStorage.setItem('portsList', JSON.stringify(data));
+    localStorage.setItem('ports', JSON.stringify(data));
+
+    window.location.replace("../main/index.html");
+    alert("Port created successfully");
 
 }
 
@@ -60,13 +64,10 @@ function getLocation() {
             // console.log("Error");
         }
 
-        document.getElementById("savebtn").onclick = function(){
-            location.href = '../main/index.html';
-        }
     }
 
-   
-    
+
+
 
     console.log("Location found " + JSON.stringify(portLocation));
 }

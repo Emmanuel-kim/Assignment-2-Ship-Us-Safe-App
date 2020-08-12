@@ -48,17 +48,40 @@
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="../main/index.html">Home</a>
         <a class="mdl-navigation__link" href="../main/viewPorts.html">View Ports</a>
-        <a class="mdl-navigation__link" href="../main/createPort.html">Create Ports</a>
         <a class="mdl-navigation__link" href="../main/viewShips.html">View Ships</a>
-        <a class="mdl-navigation__link" href="../main/createShip.html">Create Ships</a>
         <a class="mdl-navigation__link" href="../main/viewRoute.html">View Route</a>
-        <a class="mdl-navigation__link" href="../main/addRoute.html">Add Route</a>
       </nav>
     </div>
 
     <main class="mdl-layout__content">
       <div class="page-content">
+
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            href="../main/addRoute.html">
+            Add Route
+          </a>
+
+        </div>
+
         <!-- Page contents should be here-->
+        <table id="routes_table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+
+          <tr>
+            <th>Name</th>
+            <th>Ship</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Distance</th>
+            <th>Time</th>
+            <th>Cost</th>
+            <th>Start Time</th>
+            <th>Action</th>
+          </tr>
+
+
+        </table>
+
       </div>
     </main>
   </div>
@@ -67,6 +90,7 @@
 
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <script src="../scripts/shared.js"></script>
+  <script src="../scripts/mainPage.js"></script>
 </body>
 
 </html>

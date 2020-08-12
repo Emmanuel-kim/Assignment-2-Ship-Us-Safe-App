@@ -1,15 +1,12 @@
 
 console.log("fetching ships");
-getshipsApi();
 
 if (localStorage.getItem('ships') != undefined) {
     console.log("Show data from local storage")
     showShips(getShips());
+} else {
+    getshipsApi();
 }
-// else {
-//     console.log("Load from API")
-//     getshipsApi();
-// }
 
 
 function getshipsApi() {
@@ -28,9 +25,8 @@ function getshipsApi() {
             let response = http.responseText;
 
             let data = JSON.parse(response).ships;
-            // console.log("data " + data);
-            localStorage.setItem('shipsList', JSON.stringify(data))
-            showShips(getShips());
+            localStorage.setItem('ships', JSON.stringify(data));
+
 
         } else {
             //show error
@@ -39,7 +35,6 @@ function getshipsApi() {
 
     }
 }
-
 
 
 //display data on table
@@ -61,7 +56,7 @@ function showShips(data) {
 
 //get ports from local storage
 function getShips() {
-    let data = JSON.parse(localStorage.getItem('shipsList'));
+    let data = JSON.parse(localStorage.getItem('ships'));
     return data;
 
 }
